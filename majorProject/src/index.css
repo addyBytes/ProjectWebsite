@@ -1,0 +1,294 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* --- General Body & Container Styling --- */
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 2.5rem; /* Add padding to the body */
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  color: #495057; /* Softer default font color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 3rem; /* Padding only on sides, top/bottom handled by header/footer */
+  background-color: #ffffff; /* White background for the content area */
+  border-radius: 15px; /* Rounded corners for the "page" */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* A soft shadow to lift the page */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+  min-height: calc(100vh - 5rem); /* Make container fill screen height */
+}
+
+/* --- Main Content Area --- */
+/* This ensures the main content area grows and pushes the footer down */
+main {
+  flex-grow: 1;
+  padding: 2rem 0;
+}
+
+/* --- Header & Navigation --- */
+.app-header {
+  background-color: transparent; /* Make header transparent to show container background */
+  padding: 1.5rem 0; /* Increased padding */
+  margin: 0; /* Remove margin */
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+  width: 100%;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1e2a3a;
+  background: linear-gradient(45deg, #6d28d9, #be185d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.app-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 2rem;
+  color: #495057; /* Updated nav button color */
+  padding-bottom: 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.app-nav button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, #6d28d9, #be185d);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+    border-radius: 2px;
+}
+
+.app-nav button:hover {
+    color: #6d28d9;
+}
+
+.app-nav button.active {
+  color: #6d28d9;
+}
+
+.app-nav button.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* --- Typography --- */
+h1, h2, h3 {
+  color: #212529; /* Darker color for headings */
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #495057;
+}
+
+ul {
+    padding-left: 25px;
+    line-height: 1.8;
+    color: #495057;
+}
+
+/* --- Card Styles (Neutralized to fit new design) --- */
+.card {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* --- Model Working Page --- */
+.model-working-page button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #7e22ce, #a21caf, #be185d, #7e22ce);
+  background-size: 300% 300%;
+  transition: all 0.4s ease;
+  animation: gradientAnimation 6s ease infinite;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.model-working-page button .fa-solid {
+    transition: transform 0.3s ease;
+}
+
+.model-working-page button:hover {
+    box-shadow: 0 6px 20px rgba(126, 34, 206, 0.4);
+    transform: translateY(-3px);
+}
+.model-working-page button:hover .fa-solid {
+    transform: rotate(90deg);
+}
+
+.model-working-page button:disabled {
+    cursor: not-allowed;
+    background: #adb5bd;
+    box-shadow: none;
+    transform: none;
+}
+
+.result-display {
+  border: 1px solid #e9ecef;
+  border-left-width: 6px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  background-color: #f8f9fa; /* Light background for result */
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.result-display.correct {
+    border-left-color: #17a2b8;
+}
+
+.result-display.incorrect {
+    border-left-color: #dc3545;
+}
+
+.result-display p {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.result-display p:last-child {
+    margin-bottom: 0;
+}
+
+.result-display p strong {
+    color: #212529;
+    font-weight: 600;
+}
+
+/* --- Confusion Matrix Table --- */
+.confusion-matrix {
+  margin-top: 2rem;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+.confusion-matrix th, .confusion-matrix td {
+  border: 1px solid #dee2e6;
+  padding: 1.25rem;
+  text-align: center;
+  font-weight: 500;
+}
+.confusion-matrix th {
+  background-color: #f1f3f5;
+  color: #343a40;
+  font-weight: 600;
+}
+
+.confusion-matrix tbody td {
+    font-size: 1.1rem;
+}
+
+/* TN */
+.confusion-matrix tbody tr:nth-child(1) td:nth-child(1) { background-color: #e3f9e5; } 
+/* FN */
+.confusion-matrix tbody tr:nth-child(1) td:nth-child(2) { background-color: #fff4e6; }
+/* FP */
+.confusion-matrix tbody tr:nth-child(2) td:n-child(1) { background-color: #ffe3e3; }
+/* TP */
+.confusion-matrix tbody tr:nth-child(2) td:nth-child(2) { background-color: #d4edda; }
+
+
+/* --- Footer --- */
+.app-footer {
+    padding: 2.5rem;
+    background-color: #212529; /* Darker footer */
+    color: #ced4da;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom of the flex container */
+    margin-left: -3rem; /* Adjust for container padding */
+    margin-right: -3rem; /* Adjust for container padding */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.app-footer p {
+    color: #ced4da;
+    margin-bottom: 0;
+}
+

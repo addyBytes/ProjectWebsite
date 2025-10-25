@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "bkend",
+			"path": "../../../../bkend"
+		},
+		{
+			"name": "MajorProjectFrontend",
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}
